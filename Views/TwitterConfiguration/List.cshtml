@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TwitterConfiguration>
+
+@{
+    ViewData["Title"] = "Списък";
+}
+
+<h1>Списък</h1>
+
+<p>
+    <a asp-action="Create">Създайте нов</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApiKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApiSecretKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccessToken)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccessTokenSecret)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApiKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApiSecretKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessToken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessTokenSecret)
+            </td>
+            <td>
+                @Html.ActionLink("Редактиране", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Детайли", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Изтриване", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
